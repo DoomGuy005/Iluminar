@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-		<title>Índice</title>
+		<title>Cadastro</title>
 		<link rel="stylesheet" href="css/materialize.css" media="screen,projection">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
@@ -16,31 +16,31 @@
 			</nav>
 		</header>
 		<section>
-			<div class="row">
+			<div id="con1" class="row">
 				<form class="col s12">
-					<h5>
+					<h5 class="center-align">
 						Cadastro de Usuário
 					</h5>
 					<div class="row">
-						<div class="input-field col s12">
+						<div class="input-field col s12 l6">
 				          <input placeholder="Nome" id="1ro_nome" type="text" class="validate active">
 				          <label for="1ro_nome">Nome</label>
 				        </div>
 				    </div>
 				    <div class="row">
-				        <div class="input-field col s12">
+				        <div class="input-field col s12 l6">
 				          <input id="2ndo_nome" placeholder="Sobrenome" type="text" class="validate">
 				          <label for="2ndo_nome">Sobrenome</label>
 				        </div>
 					</div>
 					<div class="row">
-				        <div class="input-field col s12">
+				        <div class="input-field col s12 l6">
 				          <input id="idade" placeholder="Idade" type="text" class="validate">
 				          <label for="idade">Idade</label>
 				        </div>
 					</div>
-					<h5>
-						Você possui deficiência visual?
+					<h5 class="center-align">
+						Você possui alguma deficiência visual?
 					</h5>
 					<div class="row" align="center">
 						<p>
@@ -57,14 +57,15 @@
 					</div>
 					
 					<div class="row" align="center">
-						<button data-target="modal1" class="btn modal-trigger waves-effect waves-light btn-large blue darken-1">
+						<button data-target="con2" class="waves-effect waves-light btn-large blue darken-1 btn modal-trigger">
 							Próximo
 						    <i class="material-icons right">arrow_forward</i>
 						  </button>
 					</div>
-
-					 <div id="modal1" class="modal">
-					 	<!--Conteúdo do modal-->
+				</form>
+			</div>
+					 <!--<div id="modal1" class="modal bottom-sheet">
+					 	Conteúdo do modal
 						    <div class="modal-content">
 						      <h4>Qual o seu nível de deficiência visual?</h4>
 						      	<p>
@@ -80,14 +81,13 @@
 							      </label>
 						      	</p>
 						    </div>
-
-					    <!--Rodapé do modal-->
+					    Rodapé do modal
 						    <div class="modal-footer">
 						      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
 						    </div>
-					  </div>
-				</form>
-			</div>
+					  </div>-->
+
+			
 		</section>
 		<footer>
 			
