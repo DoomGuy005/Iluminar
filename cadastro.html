@@ -23,7 +23,7 @@
 					</h5>
 					<div class="row">
 						<div class="input-field col s12 l6">
-				          <input placeholder="Nome" id="1ro_nome" type="text" class="validate active">
+				          <input placeholder="Nome" id="1ro_nome" type="text" class="validate">
 				          <label for="1ro_nome">Nome</label>
 				        </div>
 				    </div>
@@ -57,41 +57,48 @@
 					</div>
 					
 					<div class="row" align="center">
-						<button data-target="con2" class="waves-effect waves-light btn-large blue darken-1 btn modal-trigger">
+						<button data-target="modal1" class="waves-effect waves-light btn-large blue darken-1 btn modal-trigger">
 							Próximo
 						    <i class="material-icons right">arrow_forward</i>
 						  </button>
 					</div>
 				</form>
 			</div>
-					 <!--<div id="modal1" class="modal bottom-sheet">
-					 	Conteúdo do modal
+					 <div id="modal1" class="modal">
 						    <div class="modal-content">
-						      <h4>Qual o seu nível de deficiência visual?</h4>
+						      <h5>Qual o seu grau de deficiência visual?</h5>
 						      	<p>
 							      <label>
-							        <input class="with-gap" value="sim" name="def" type="radio"/>
-							        <span>Sim</span>
+							        <input class="with-gap" value="high" name="def" type="radio"/>
+							        <span>Alto</span>
 							      </label>
 							    </p>
 							    <p>
 							      <label>
-							        <input class="with-gap" value="nao" name="def" type="radio"/>
-							        <span>Não</span>
+							        <input class="with-gap" value="med" name="def" type="radio"/>
+							        <span>Médio</span>
+							      </label>
+							    </p>
+							    <p>
+							      <label>
+							        <input class="with-gap" value="low" name="def" type="radio"/>
+							        <span>Baixo</span>
 							      </label>
 						      	</p>
 						    </div>
-					    Rodapé do modal
 						    <div class="modal-footer">
-						      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+						      <a href="#!" class="modal-close waves-effect waves-green btn-flat">ACEITAR</a>
 						    </div>
-					  </div>-->
+					  </div>
 
 			
 		</section>
 		<footer>
 			
 		</footer>
-		<script type="text/javascript" src="js/materialize.min.js"></script>
-	</body>
+			<script type="text/javascript" src="js/materialize.min.js"></script>
+			<script type="text/javascript">
+				M.AutoInit();
+			</script>
+		</body>
 </html>
