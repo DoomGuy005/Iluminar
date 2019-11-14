@@ -1,4 +1,7 @@
-<?php include_once 'db/db.php'; ?>
+<?php 
+	include_once 'db/db.php'; 
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,7 +17,7 @@
 			<div class="navbar-fixed" style="height: 120px;">
 				<nav class="nav-extended blue darken-1">
 					<div class="nav-wrapper">
-						<a href="index.html" class="brand-logo"><img style="height: 59px;" src="img/logo.png"/></a>
+						<a href="index.php" class="brand-logo"><img style="height: 59px;" src="img/logo.png"/></a>
 					</div>
 					<div class="nav-content">
 						<ul class="tabs tabs-transparent">
@@ -27,28 +30,15 @@
 			</div>
 		</header>
 		
-		<section id="perfil">
+		<?php
+		if(isset($_SESSION['logado'])) {
+            {?>
+			<section id="perfil">
 			<div class="row center-align">
-					<img style="width: 100px; height: 120px; margin-top: 20px;" src="img/user.jpg" class="circle"/>
 					<h4>
-						Jherod Brendon
+						Bem-Vindo, 	<?= $_SESSION['nome'] ?>
 					</h4>
-					<div class="row">
-						<div class="col s12">
-							<div class="card blue darken-1">
-								<div class="card-content white-text">
-									<span class="card-title">
-											Minhas Informações
-									</span>
-									<p>
-										"Eu sou o Jherod, e tenho um pequenino problema com telas brilhantes, por isso estou sempre usando o filtro de cor azul."
-									</p>
-								</div>
-							</div>	
-						</div>
-					</div>
-					
-
+					<br/>
 					<div class="row">
 						<div class="col s12">
 							<a href="#!" class="btn btn-large waves-effect blue darken-1">
@@ -75,7 +65,7 @@
 					</div>
 					
 					<div class="row">
-						<a href="#!" class="btn btn-large waves-effect red darken-1">
+						<a href="logout.php" class="btn btn-large waves-effect red darken-1">
 							SAIR DA CONTA
 							<i class="material-icons left">cancel</i>
 						</a>
@@ -83,6 +73,31 @@
 					
 			</div>	
 		</section>
+		<?php 	} 
+			} else { ?>
+					<section id="perfil">
+						<div class="row center-align">
+							<div class="col s12">
+								<div class="card blue darken-1">
+									<div class="card-content white-text">
+										<p>
+											Opa! Pareçe que você não está logado ao sistema. 
+											Realiz login para usar nossa aplicação em toda sua plenitude ou, se é sua primeira vez aqui, cadastre-se no sistema.
+										</p>
+										<div class="card-action">
+											<a style="width: 250px; margin: 5px;" class="btn btn-large blue lighten-1 waves-effect" href="login.html">
+												PÁGINA DE LOGIN
+											</a>
+											<a style="width: 250px;" class="btn btn-large blue lighten-1 waves-effect" href="cadastro.php">
+												PÁGINA DE CADASTRO
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+		<?php } ?>
 
 		<section id="ranking">
 				<?php
@@ -94,7 +109,7 @@
 								<a href="detalharanking.php?id=<?= $row['SiteId'] ?>" class="btn btn-large waves-effect blue darken-1" style="width: 100%; margin-top: 5px;">
 								<?= $row['nome'] ?>
 									<i class="medium material-icons left">emoji_events</i>
-									<i class="medium material-icons left">emoji_events</i>
+									<i class="medium material-icons right">emoji_events</i>
 								</a>
 						</div>
           	  <?php }?>

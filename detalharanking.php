@@ -40,7 +40,7 @@
 						<h5>
 							<div class="container center-align">
 								<div class="input-field col s12">
-									<label for="url">URL</label>
+									<label for="url">URL (Endereço)</label>
 									<input id="url" type="text" style="text-align: center;" value="<?= $row['url'] ?>" disabled="true" name="url" class="active">
 								</div>	
 							</div>
