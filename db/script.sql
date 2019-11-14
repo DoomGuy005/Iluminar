@@ -13,10 +13,12 @@
 
 
 -- Copiando estrutura do banco de dados para iluminar_db
-CREATE DATABASE IF NOT EXISTS `iluminar_db` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
+DROP DATABASE IF EXISTS `iluminar_db`;
+CREATE DATABASE IF NOT EXISTS `iluminar_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iluminar_db`;
 
 -- Copiando estrutura para tabela iluminar_db.reviews
+DROP TABLE IF EXISTS `reviews`;
 CREATE TABLE IF NOT EXISTS `reviews` (
   `RevId` int(11) NOT NULL AUTO_INCREMENT,
   `coment` varchar(200) DEFAULT NULL,
@@ -31,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela iluminar_db.reviews: ~2 rows (aproximadamente)
+DELETE FROM `reviews`;
 /*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
 INSERT INTO `reviews` (`RevId`, `coment`, `estrelas`, `idSite`, `idUser`) VALUES
 	(1, 'O site é bom, mas acho que dava pra melhorar, sei lá.', 5, 1, 1),
@@ -38,6 +41,7 @@ INSERT INTO `reviews` (`RevId`, `coment`, `estrelas`, `idSite`, `idUser`) VALUES
 /*!40000 ALTER TABLE `reviews` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela iluminar_db.sites
+DROP TABLE IF EXISTS `sites`;
 CREATE TABLE IF NOT EXISTS `sites` (
   `SiteId` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) NOT NULL,
@@ -46,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `sites` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela iluminar_db.sites: ~2 rows (aproximadamente)
+DELETE FROM `sites`;
 /*!40000 ALTER TABLE `sites` DISABLE KEYS */;
 INSERT INTO `sites` (`SiteId`, `nome`, `url`) VALUES
 	(1, 'DIATINF/IFRN', 'http://diatinf.ifrn.edu.br'),
@@ -53,6 +58,7 @@ INSERT INTO `sites` (`SiteId`, `nome`, `url`) VALUES
 /*!40000 ALTER TABLE `sites` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela iluminar_db.users
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `UserId` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) NOT NULL,
@@ -60,13 +66,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `idade` tinyint(4) NOT NULL,
   `ehDef` tinyint(4) NOT NULL,
   `defLevel` tinyint(4) DEFAULT NULL,
+  `senha` varchar(50) NOT NULL,
+  `info` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela iluminar_db.users: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela iluminar_db.users: ~2 rows (aproximadamente)
+DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`UserId`, `nome`, `sobrenome`, `idade`, `ehDef`, `defLevel`) VALUES
-	(1, 'Jherod', 'Brendon', 18, 1, 1);
+INSERT INTO `users` (`UserId`, `nome`, `sobrenome`, `idade`, `ehDef`, `defLevel`, `senha`, `info`) VALUES
+	(1, 'Jherod', 'Brendon', 18, 1, 1, 'secreto', 'Eu sou um cara excêntrico, não me importo com os pequenos detalhes e pá e pum nas idéia.'),
+	(3, 'FlÃ¡vio Silva', 'Maria', 18, 1, NULL, '1234', NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
