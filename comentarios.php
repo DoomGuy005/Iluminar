@@ -45,22 +45,33 @@
 						<!-- Lista de Avaliações -->
 						<ul class="collection">
 							<li class="collection-item avatar">
-								<i class="material-icons circle">person</i>
-								<span class="title">
-									<?= $row['nome'] ?>, <?= $row['idade'] ?>, <?= $row['estrelas'] ?> estrelas
-								<span/>
-								<p>"<?= $row['coment'] ?>"</p>
+							<?php if ($row['coment'] != NULL)
+								  { ?>
+									<i class="material-icons circle">person</i>
+									<span class="title">
+										<?= $row['nome'] ?>, <?= $row['idade'] ?>, <?= $row['estrelas'] ?> estrelas
+									<span/>
+									<p>"<?= $row['coment'] ?>"</p>
+							<?php } else { ?>
+									<i class="material-icons circle">person</i>
+									<span class="title">
+										<?= $row['nome'] ?>, <?= $row['idade'] ?>, <?= $row['estrelas'] ?> estrelas
+									<span/>
+									<p style="color: gray;">Sem comentário do usuário.</p>
+							<?php } ?>
 							</li>
 						</ul>				
 				</section>
 				<!-- Fim_Lista de Avaliações -->
 	<?php 	}?>
-
-	<div class="fixed-action-btn">
-		<a class="btn-floating btn-large blue darken-1 modal-trigger" href="#modal">
-			<i class="large material-icons">add</i>
-		</a>
-	</div>
+	<?php if (isset($_SESSION['logado'])) 
+		  { ?>
+			<div class="fixed-action-btn">
+				<a class="btn-floating btn-large blue darken-1 modal-trigger" href="#modal">
+					<i class="large material-icons">add</i>
+				</a>
+			</div>
+	<?php } ?>
 	
 	<!-- Modal do comentário -->
 
@@ -84,7 +95,7 @@
 					</div>	
 			</div>
 					<div class="modal-footer">
-						<button type="submit" class="waves-effect btn-flat green">
+						<button type="submit" class="waves-effect btn-flat green lighten-2">
 							Criar avaliação 
 						</button>
 				</form>

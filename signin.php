@@ -28,8 +28,15 @@
     if (count($errors) == 0) {
         $query = "INSERT INTO users (nome, sobrenome, idade, ehdef, senha) VALUES('$nome1', '$nome2', '$idade' , '$isdef', '$senha')";
         mysqli_query($conn, $query);
+
+        $sql = "SELECT UserId FROM users WHERE nome = '$nome1' AND sobrenome = '$nome2' AND senha = '$senha')";
+        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+        while($row = $result->fetch_assoc()) {
+            $_SESSION['id'] = $row['UserId']; 
+        }
         $_SESSION['nome'] = $nome1;
         $_SESSION['logado'] = TRUE;
         header('location: index.php');
   }
+  header('location: index.php');
 }

@@ -32,9 +32,9 @@
             {?>
             	<section>
                 	<div class="row center-align">
-							<h4>
+							<h5>
 								<?= $row['nome'] ?>
-							</h4>
+							</h5>
 					</div>
 					<div class="row center-align">
 						<h5>

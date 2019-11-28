@@ -8,8 +8,8 @@
         $userid = $_SESSION['id'];
 
         $query = ("INSERT INTO reviews (coment, estrelas, idSite, idUser) VALUES ('$comment', $estrelas, $siteid, $userid)");
-        echo $query;
-        $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+   	$result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+	header("Location: comentarios.php?id=$siteid");
     }
     else {
         echo "usuário não está logado.";

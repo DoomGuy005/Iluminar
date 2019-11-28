@@ -27,25 +27,25 @@
 					</h5>
 					<div class="row">
 						<div class="input-field col s12 l6">
-				          <input placeholder="Nome" id="nome1" name="nome" type="text" class="validate">
+				          <input placeholder="Nome" id="nome1" name="nome" type="text" class="validate" required>
 				          <label for="nome1">Nome</label>
 				        </div>
 				    </div>
 				    <div class="row">
 				        <div class="input-field col s12 l6">
-				          <input id="nome2" placeholder="Sobrenome" name="sobrenome" type="text" class="validate">
+				          <input id="nome2" placeholder="Sobrenome" name="sobrenome" type="text" class="validate" required>
 				          <label for="nome2">Sobrenome</label>
 				        </div>
 					</div>
 					<div class="row">
 				        <div class="input-field col s12 l6">
-				          <input id="idade" placeholder="Idade" name="idade" type="text" class="validate">
+				          <input id="idade" placeholder="Idade" name="idade" type="text" class="validate" required>
 				          <label for="idade">Idade</label>
 				        </div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-						  <input id="senha" type="password" name="senha" class="validate">
+						  <input id="senha" type="password" name="senha" class="validate"  required>
 						  <label for="senha">Senha</label>
 						</div>
 					  </div>
@@ -55,12 +55,12 @@
 					<div class="row" align="center">
 						<p>
 					      <label>
-					        <input class="with-gap" value="1" name="radio" type="radio"/>
+					        <input value="1" name="radio" type="radio" required />
 					        <span>Sim</span>
 					      </label>
 
 					      <label>
-					        <input class="with-gap" value="0" name="radio" type="radio"/>
+					        <input value="0" name="radio" type="radio"/>
 					        <span>Não</span>
 					      </label>
 					    </p>
