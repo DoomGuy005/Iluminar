@@ -37,7 +37,7 @@
 	<?php 	}?>
     
 	<?php
-			$sql = "SELECT r.coment, r.estrelas, u.nome, u.idade,r.idSite FROM reviews r INNER JOIN users u ON r.idUser = u.UserId WHERE r.idSite = $id";
+			$sql = "SELECT r.coment, r.estrelas, u.nome, u.idade,r.idSite FROM reviews r INNER JOIN users u ON r.idUser = u.UserId WHERE r.idSite = $id ORDER BY r.estrelas DESC";
             $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
             while($row = $result->fetch_assoc())
             {?>

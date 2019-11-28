@@ -13,16 +13,14 @@
 
 
 -- Copiando estrutura do banco de dados para iluminar_db
-DROP DATABASE IF EXISTS `iluminar_db`;
 CREATE DATABASE IF NOT EXISTS `iluminar_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `iluminar_db`;
 
 -- Copiando estrutura para tabela iluminar_db.reviews
-DROP TABLE IF EXISTS `reviews`;
 CREATE TABLE IF NOT EXISTS `reviews` (
   `RevId` int(11) NOT NULL AUTO_INCREMENT,
   `coment` varchar(200) DEFAULT NULL,
-  `estrelas` tinyint(4) NOT NULL,
+  `estrelas` tinyint(5) NOT NULL,
   `idSite` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   PRIMARY KEY (`RevId`),
@@ -30,9 +28,9 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   KEY `FK__users` (`idUser`),
   CONSTRAINT `FK__sites` FOREIGN KEY (`idSite`) REFERENCES `sites` (`SiteId`),
   CONSTRAINT `FK__users` FOREIGN KEY (`idUser`) REFERENCES `users` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela iluminar_db.reviews: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela iluminar_db.reviews: ~3 rows (aproximadamente)
 DELETE FROM `reviews`;
 /*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
 INSERT INTO `reviews` (`RevId`, `coment`, `estrelas`, `idSite`, `idUser`) VALUES
@@ -41,7 +39,6 @@ INSERT INTO `reviews` (`RevId`, `coment`, `estrelas`, `idSite`, `idUser`) VALUES
 /*!40000 ALTER TABLE `reviews` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela iluminar_db.sites
-DROP TABLE IF EXISTS `sites`;
 CREATE TABLE IF NOT EXISTS `sites` (
   `SiteId` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) NOT NULL,
@@ -58,7 +55,6 @@ INSERT INTO `sites` (`SiteId`, `nome`, `url`) VALUES
 /*!40000 ALTER TABLE `sites` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela iluminar_db.users
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `UserId` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) NOT NULL,
@@ -76,7 +72,7 @@ DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`UserId`, `nome`, `sobrenome`, `idade`, `ehDef`, `defLevel`, `senha`, `info`) VALUES
 	(1, 'Jherod', 'Brendon', 18, 1, 1, 'secreto', 'Eu sou um cara excêntrico, não me importo com os pequenos detalhes e pá e pum nas idéia.'),
-	(3, 'FlÃ¡vio Silva', 'Maria', 18, 1, NULL, '1234', NULL);
+	(3, 'Flávio Silva', 'Maria', 18, 1, 1, '1234', 'Sou um cara reservado.');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
