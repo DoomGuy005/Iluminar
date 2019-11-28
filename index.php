@@ -14,10 +14,10 @@
 	<body>
 		
 		<header>
-			<div class="navbar-fixed" style="height: 120px;">
-				<nav class="nav-extended blue darken-1">
-					<div class="nav-wrapper">
-						<a href="index.php" class="brand-logo"><img style="height: 59px;" src="img/logo.png"/></a>
+			<div class="navbar-fixed" style="height: 130px;">
+				<nav class="nav-extended blue darken-1" >
+					<div class="nav-wrapper" style="height: 80px;">
+						<a href="index.php" class="brand-logo"><img style="height: 64px;" src="img/logo.png"/></a>
 					</div>
 					<div class="nav-content">
 						<ul class="tabs tabs-transparent">
@@ -101,7 +101,7 @@
 
 		<section id="ranking">
 				<?php
-                	$sql = "SELECT * FROM sites AS sit INNER JOIN reviews as rev on sit.SiteId = rev.idSite ORDER BY rev.estrelas DESC";
+                	$sql = "SELECT s.SiteId, s.nome FROM sites AS s";
                 	$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                 	while($row = $result->fetch_assoc())
                 	{?>

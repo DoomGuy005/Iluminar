@@ -1,4 +1,7 @@
-<?php include_once 'db/db.php'; ?>
+<?php 
+	include_once 'db/db.php'; 
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -32,8 +35,9 @@
 				</header>
 				<!-- Fim_Cabeçalho -->
 	<?php 	}?>
+    
 	<?php
-			$sql = "SELECT * FROM reviews, users WHERE reviews.idSite = $id";
+			$sql = "SELECT r.coment, r.estrelas, u.nome, u.idade,r.idSite FROM reviews r INNER JOIN users u ON r.idUser = u.UserId WHERE r.idSite = $id";
             $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
             while($row = $result->fetch_assoc())
             {?>
@@ -52,12 +56,63 @@
 				<!-- Fim_Lista de Avaliações -->
 	<?php 	}?>
 
+	<div class="fixed-action-btn">
+		<a class="btn-floating btn-large blue darken-1 modal-trigger" href="#modal">
+			<i class="large material-icons">add</i>
+		</a>
+	</div>
+	
+	<!-- Modal do comentário -->
+
+	<div id="modal" class="modal modal-fixed-footer">
+			<h5 style="text-align: center;">Adicionar avaliação</h5>
+			<div class="modal-content">
+				<form class="col s12" action="criacomentario.php?siteid=<?php echo $id ?>" method="POST">
+					<div class="input-field col s12">
+							<select id="estrelas" name="estrelas">
+								<option value="1" selected>1 Estrela</option>
+								<option value="2">2 Estrelas</option>
+								<option value="3">3 Estrelas</option>
+								<option value="4">4 Estrelas</option>
+								<option value="5">5 Estrelas</option>
+							</select>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<textarea placeholder="Escreva seu comentário aqui!" id="com" name="com" class="materialize-textarea"></textarea>
+						</div>
+					</div>	
+			</div>
+					<div class="modal-footer">
+						<button type="submit" class="waves-effect btn-flat green">
+							Criar avaliação 
+						</button>
+				</form>
+					</div>
+		</div>
 		<!-- Rodapé -->
 		<footer>
 			
 		</footer>
 		<!-- Fim_Rodapé -->
-
-		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js">	
+		</script>
+		<script type="text/javascript">
+		M.AutoInit();
+			document.addEventListener('DOMContentLoaded', function() {
+				var elems = document.querySelectorAll('.fixed-action-btn');
+				var instances = M.FloatingActionButton.init(elems,  {
+					hoverEnabled: false
+				});
+			});
+			document.addEventListener('DOMContentLoaded', function() {
+				var elems = document.querySelectorAll('.modal');
+				var instances = M.Modal.init(elems, options);
+			});
+			document.addEventListener('DOMContentLoaded', function() {
+				var elems = document.querySelectorAll('select');
+				var instances = M.FormSelect.init(elems, options);
+			});
+		</script>
 	</body>
 </html>
